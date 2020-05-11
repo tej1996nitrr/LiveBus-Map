@@ -3,9 +3,10 @@ from pykafka import KafkaClient
 import json
 import uuid
 from datetime import datetime
+import time
 
 client = KafkaClient(hosts="localhost:9092")
-topic = client.topics['testBusData']
+topic = client.topics['geoData']
 producer = topic.get_sync_producer()
 
 
@@ -33,6 +34,7 @@ def generate_checkpoint(coordinates):
         message= json.dumps(data)
         print(message)
         producer.produce(message.encode('ascii'))
+        time.sleep(1)
 
         # if bus  reaches a  last coordinate, start from beginning
         if i==len(coordinates)-1:
