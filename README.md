@@ -8,3 +8,11 @@ Technologies used:
 2. Python (pykafka, flask)
 3. Javascript (leaflet.js)
 
+Requirements:
+1.Java8 sdk for kafka
+2.Kafka
+3.python 3.7
+4.pykafka 
+5.flask
+6.leaflet.js
+
