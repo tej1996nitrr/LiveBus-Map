@@ -15,7 +15,7 @@ def get_messages(topicname):
     def events():
         for i in client.topics[topicname].get_simple_consumer():
             yield 'data:{0}\n\n'.format(i.value.decode())
-    return Response(stream_with_context(events()))
+    return Response(events(), mimetype="text/event-stream")
 
 if __name__=="__main__":
     app.run(debug=True, port=5001)
